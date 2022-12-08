@@ -21,12 +21,13 @@ section .heading
 {
     text-align: center;
     padding-bottom: 30px;
+    margin: 20px 10px 50px 10px;
 }
 /*ABOUT*/
 #about
 {
     background-color: #001449;
-    border-radius: 10px;
+    border-radius: 50px 50px 50px 50px;
 }
 .profile-picture
 {
@@ -45,7 +46,7 @@ img
 }
 #about .heading h3
 {
-    color: black !important;
+    color: white !important;
 }
 #about .heading
 {
