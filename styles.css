@@ -14,7 +14,8 @@ img
 }
 section
 {
-    padding: 20px 0 0 0;
+    padding: 20px 10px 50px 10px;
+    margin: 20px 10px 50px 10px;
 }
 section .heading
 {
