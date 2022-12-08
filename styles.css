@@ -1,0 +1,52 @@
+/*GENERAL*/
+body
+{
+    font-family: 'lato', sans-serif;
+}
+h1,h2,h3,h4,h5,h6
+{
+    font-weight: bold;
+}
+img
+{
+    max-width: 100%;
+    height: auto;
+}
+section
+{
+    padding: 50px 0 60px 0;
+}
+section .heading
+{
+    text-align: center;
+    padding-bottom: 30px;
+}
+/*ABOUT*/
+#about
+{
+    background-color: #001449;
+    border-radius: 10px;
+}
+.profile-picture
+{
+    text-align: center;
+    margin: 0px auto 30px;
+}
+#about .heading h1
+{
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+img
+{
+    border-radius: 50%;
+}
+#about .heading h3
+{
+    color: black !important;
+}
+#about .heading
+{
+    font-size: 50px;
+}
