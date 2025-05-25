@@ -4,27 +4,328 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Vcard</title>
+    <title>Sébastien De Laet - Portfolio</title>
+    <style>
+        /*GENERAL*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #001449 0%, #0066cc 50%, #4da6ff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: bold;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /*CARD CONTAINER*/
+        .card-container {
+            background: rgba(0, 20, 73, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(77, 166, 255, 0.3);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 20, 73, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(77, 166, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /*PROFILE PICTURE*/
+        .profile-picture {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(77, 166, 255, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 20, 73, 0.4);
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .profile-picture img:hover {
+            transform: scale(1.1);
+            border-color: rgba(77, 166, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.4);
+        }
+
+        /*HEADING*/
+        .heading {
+            text-align: center;
+            color: white;
+        }
+
+        .heading h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .heading h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+            animation: slideInRight 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /*SOCIAL LINKS*/
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(77, 166, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(77, 166, 255, 0.4);
+        }
+
+        .social-links a:hover {
+            background: rgba(77, 166, 255, 0.4);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /*CV DOWNLOAD BUTTON*/
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #0066cc, #4da6ff);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 102, 204, 0.4);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            margin-top: 20px;
+        }
+
+        .cv-button:hover {
+            background: linear-gradient(45deg, #004499, #0066cc);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 102, 204, 0.5);
+            color: white;
+        }
+
+        .cv-button:active {
+            transform: translateY(-1px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 25px rgba(0, 102, 204, 0.4); }
+            50% { box-shadow: 0 10px 25px rgba(0, 102, 204, 0.6); }
+        }
+
+        /*SKILLS TAGS*/
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 25px 0;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .skill-tag {
+            background: rgba(77, 166, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(77, 166, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(77, 166, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /*RESPONSIVE*/
+        @media (max-width: 768px) {
+            .card-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .heading h1 {
+                font-size: 2rem;
+            }
+
+            .heading h3 {
+                font-size: 1rem;
+            }
+
+            .profile-picture img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .cv-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <section id="about" class="container">
-        <div class="col-8 col-lg-4 profile-picture">
-            <img src="moi-ConvertImage.png" alt="moi">
+<div class="card-container">
+    <div class="profile-picture">
+        <img src="moi-ConvertImage.png" alt="Sébastien De Laet">
+    </div>
+
+    <div class="heading">
+        <h1>Salut, c'est moi Seba !</h1>
+        <h3>Développeur Java • Développeur Web • Électricien</h3>
+        <h3>Créateur de jeux vidéo</h3>
+
+        <div class="skills">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Web Dev</span>
+            <span class="skill-tag">Game Dev</span>
+            <span class="skill-tag">Électricité</span>
         </div>
-        <div class="heading">
-            <h1>Salut, c'est moi Seba !</h1>
-            <h3>Développeur java / Développeur Web /Electricien 
-            </h3>
-            <h3>Je développe aussi des jeux vidéo  
-            </h3>
-            <a href="https://github.com/IronNetta"><i class="bi-github" role="img" aria-label="GitHub"></i></a>
-            <a href="https://www.linkedin.com/in/s%C3%A9bastien-de-laet"><i class="bi bi-linkedin"></i></i></a>
+
+        <div class="social-links">
+            <a href="https://github.com/IronNetta" target="_blank" title="GitHub">
+                <i class="bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/s%C3%A9bastien-de-laet" target="_blank" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
         </div>
-    </section>
+
+        <a href="CvdeLaetSebastien.pdf" class="cv-button" download="CV_Sebastien_DeLaet.pdf" target="_blank">
+            <i class="bi bi-download"></i>
+            Télécharger mon CV
+        </a>
+    </div>
+</div>
+
+<script>
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    });
+
+    document.querySelectorAll('.card-container').forEach(el => {
+        observer.observe(el);
+    });
+</script>
 </body>
 </html>
